@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("./assets/fonts/RedHatText-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  /* variable range */
+  font-style: normal;
+}
+
+/* Italic + variable weights */
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("./assets/fonts/RedHatText-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --green: #1EA575;
+  --rose-900: #260F08;
+  --rose-500: #87635A;
+  --rose-400: #AD8A85;
+  --rose-300: #CAAFA7;
+  --rose-100: #F5EEEC;
+  --rose-50: #FCF8F6;
+  --green: #1EA575;
+  --red: #C73B0F;
+}
+
+body {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 400;
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: 0px;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0px;
+  color: var(--rose-900);
+}
+
+h4 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0px;
+  color: var(--rose-500);
+}
+
+.h4_bold {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+.price {
+  color: var(--red);
+}
+
+.img_wrapper {
+  position: relative;
+}
+
+.desert_img{
+  width: 100%;
+  border-radius: 20px;
+}
+
+.img_wrapper button {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 11px;
+  border-radius: 3rem;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.img_wrapper span {
+  color: var(--rose-900);
+  white-space: nowrap;
+}
+
+.main_container {
+  margin: 2rem;
+}
