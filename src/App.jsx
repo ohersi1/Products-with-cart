@@ -1,5 +1,5 @@
 import "./App.css";
-import cartIcon from "./assets/images/icon-add-to-cart.svg";
+import cartIcon from "/assets/images/icon-add-to-cart.svg";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <section className="cards_container">
           <div className="card">
             <div className="img_wrapper">
-              <img className="desert_img" src="./assets/images/image-waffle-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-waffle-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
                 <span className="h4_bold">Add to Cart</span>
@@ -21,10 +21,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img src="./assets/images/image-creme-brulee-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-creme-brulee-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Crème Brûlée</h4>
@@ -33,10 +33,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img src="./assets/images/image-macaron-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-macaron-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Macaron</h4>
@@ -45,10 +45,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img src="./assets/images/image-tiramisu-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-tiramisu-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Tiramisu</h4>
@@ -57,10 +57,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img src="./assets/images/image-baklava-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-baklava-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Baklava</h4>
@@ -69,10 +69,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img src="./assets/images/image-meringue-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-meringue-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Pie</h4>
@@ -81,10 +81,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img src="./assets/images/image-cake-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-cake-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Cake</h4>
@@ -93,10 +93,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img className="desert_img" src="./assets/images/image-brownie-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-brownie-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Brownie</h4>
@@ -105,10 +105,10 @@ function App() {
           </div>
           <div className="card">
             <div className="img_wrapper">
-              <img src="./assets/images/image-panna-cotta-mobile.jpg" alt="" />
+              <img className="dessert_img" src="./assets/images/image-panna-cotta-mobile.jpg" alt="" />
               <button>
                 <img src={cartIcon} alt="" />
-                <span>Add to Cart</span>
+                <span className="h4_bold">Add to Cart</span>
               </button>
             </div>
             <h4>Panna Cotta</h4>
