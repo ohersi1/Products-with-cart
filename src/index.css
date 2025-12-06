@@ -113,7 +113,7 @@ h1 {
   font-weight: 700;
   line-height: 120%;
   letter-spacing: 0px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 h2 {
@@ -137,7 +137,7 @@ h4 {
   line-height: 150%;
   letter-spacing: 0px;
   color: var(--rose-500);
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.25rem;
 }
 
 .h4_bold {
@@ -153,12 +153,12 @@ h4 {
 
 .img_wrapper {
   position: relative;
-  margin-bottom: 1.7rem;
+  margin-bottom: calc(1rem + 21.5px);
 }
 
 .dessert_img{
   width: 100%;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .img_wrapper button {
@@ -167,14 +167,15 @@ h4 {
   bottom: 0;
   transform: translate(-50%, 50%);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   gap: 10px;
-  padding: 10px 22px;
-  border-radius: 3rem;
+  padding: 0.75rem;
+  border-radius: 999px;
   background-color: var(--white);
   cursor: pointer;
   border: 0.5px solid;
+  
 }
 
 .img_wrapper span {
@@ -183,25 +184,26 @@ h4 {
 }
 
 .main_container {
-  margin: 2rem;
+  /* margin: 2rem; */
+  padding: 1.5rem;
 }
 
 .card h3:first-of-type  {
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.25rem;
 }
 
 .card h3:nth-of-type(2) {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.5rem;
 }
 
 .cart {
   background-color: var(--white);
   border-radius: 12px;
-  padding: 2.2rem;
+  padding: 1.5rem;
 }
 
 .cart h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .cart img {
@@ -211,4 +213,8 @@ h4 {
 
 .cart h4 {
   text-align: center;
+}
+
+button img {
+  color: var(--red);
 }
