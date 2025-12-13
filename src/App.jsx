@@ -11,6 +11,7 @@ import cakeMobile from "./assets/images/image-cake-mobile.jpg";
 import brownieMobile from "./assets/images/image-brownie-mobile.jpg";
 import cottaMobile from "./assets/images/image-panna-cotta-mobile.jpg";
 import emptyCartImg from "./assets/images/illustration-empty-cart.svg";
+import CartItem from "./components/CartItem";
 
 function App() {
   const [products, setProducts] = useState([
@@ -171,8 +172,20 @@ function App() {
           <h2 className="price">
             Your Cart ({totalItems > 0 ? totalItems : 0})
           </h2>
-          <img src={emptyCartImg} alt="" />
-          <h4 className="h4_bold">Your added items will appear here</h4>
+          {totalItems > 0 ? (
+            products.map((p) => {
+              return cartState[p.id] > 0 ? (
+                <CartItem product={p} count={cartState[p.id]} key={p.id} />
+              ) : (
+                ""
+              );
+            })
+          ) : (
+            <div>
+              <img src={emptyCartImg} alt="" />
+              <h4 className="h4_bold">Your added items will appear here</h4>
+            </div>
+          )}
         </section>
       </div>
     </>
