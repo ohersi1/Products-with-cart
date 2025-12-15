@@ -11,6 +11,7 @@ import cakeMobile from "./assets/images/image-cake-mobile.jpg";
 import brownieMobile from "./assets/images/image-brownie-mobile.jpg";
 import cottaMobile from "./assets/images/image-panna-cotta-mobile.jpg";
 import emptyCartImg from "./assets/images/illustration-empty-cart.svg";
+import carbonNeutral from "./assets/images/icon-carbon-neutral.svg";
 import CartItem from "./components/CartItem";
 
 function App() {
@@ -79,7 +80,7 @@ function App() {
       image: cottaMobile,
     },
   ]);
-  const [cartState, setCartState] = useState({
+  const [count, setCount] = useState({
     1: 0,
     2: 0,
     3: 0,
@@ -93,21 +94,28 @@ function App() {
 
   let totalItems = 0;
 
-  for (let id in cartState) {
-    totalItems += cartState[id];
+  for (let id in count) {
+    totalItems += count[id];
   }
 
   const decrement = (id) => {
-    setCartState((prev) => {
+    setCount((prev) => {
       return { ...prev, [id]: prev[id] - 1 };
     });
   };
   const increment = (id) => {
-    setCartState((prev) => {
+    setCount((prev) => {
       return { ...prev, [id]: prev[id] + 1 };
     });
   };
+  let cartTotal = 0;
+  const cartCalculation = () => {
+    products.map((p) => {
+      return (cartTotal += count[p.id] * p.price);
+    });
+  };
 
+  cartCalculation();
   return (
     <>
       <div className="main_container">
@@ -117,74 +125,87 @@ function App() {
             product={products[0]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[0].id]}
+            count={count[products[0].id]}
           />
           <Card
             product={products[1]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[1].id]}
+            count={count[products[1].id]}
           />
           <Card
             product={products[2]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[2].id]}
+            count={count[products[2].id]}
           />
           <Card
             product={products[3]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[3].id]}
+            count={count[products[3].id]}
           />
           <Card
             product={products[4]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[4].id]}
+            count={count[products[4].id]}
           />
           <Card
             product={products[5]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[5].id]}
+            count={count[products[5].id]}
           />
           <Card
             product={products[6]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[6].id]}
+            count={count[products[6].id]}
           />
           <Card
             product={products[7]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[7].id]}
+            count={count[products[7].id]}
           />
           <Card
             product={products[8]}
             increment={increment}
             decrement={decrement}
-            count={cartState[products[8].id]}
+            count={count[products[8].id]}
           />
         </section>
         <section className="cart">
           <h2 className="price">
             Your Cart ({totalItems > 0 ? totalItems : 0})
           </h2>
+
           {totalItems > 0 ? (
-            products.map((p) => {
-              return cartState[p.id] > 0 ? (
-                <CartItem product={p} count={cartState[p.id]} key={p.id} />
-              ) : (
-                ""
-              );
-            })
+            <>
+              {products.map((p) => {
+                return count[p.id] > 0 ? (
+                  <CartItem product={p} count={count[p.id]} key={p.id} />
+                ) : (
+                  ""
+                );
+              })}
+              <div className="cart_total">
+                <h4>Order total</h4>
+                <h2>£{cartTotal.toFixed(2)}</h2>
+              </div>
+              <div className="carbon_neutral">
+                <img src={carbonNeutral} alt="" />
+                <h4>This is a <span className="h4_bold">carbon-neutral</span> delivery</h4>
+              </div>
+              <button><h3>Confirm Order</h3></button>
+            </>
           ) : (
             <div>
               <img src={emptyCartImg} alt="" />
               <h4 className="h4_bold">Your added items will appear here</h4>
             </div>
+            
           )}
         </section>
       </div>
