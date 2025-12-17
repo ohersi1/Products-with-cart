@@ -47,3 +47,19 @@
 button h3 {
     color: var(--white);
 }
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    height: 91vh;
+    padding: 2.5rem;
+}

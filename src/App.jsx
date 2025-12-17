@@ -2,6 +2,9 @@ import "./App.css";
 import { useState } from "react";
 import Card from "./components/Card";
 import imageWaffleMobile from "./assets/images/image-waffle-mobile.jpg";
+import imageWaffleTablet from "./assets/images/image-waffle-tablet.jpg";
+import imageWaffleDesktop from "./assets/images/image-waffle-desktop.jpg";
+import imageWaffleThumbnail from "./assets/images/image-waffle-thumbnail.jpg";
 import cremeBruleeMobile from "./assets/images/image-creme-brulee-mobile.jpg";
 import macaronMobile from "./assets/images/image-macaron-mobile.jpg";
 import tiramisuMobile from "./assets/images/image-tiramisu-mobile.jpg";
@@ -12,7 +15,9 @@ import brownieMobile from "./assets/images/image-brownie-mobile.jpg";
 import cottaMobile from "./assets/images/image-panna-cotta-mobile.jpg";
 import emptyCartImg from "./assets/images/illustration-empty-cart.svg";
 import carbonNeutral from "./assets/images/icon-carbon-neutral.svg";
+import orderConfirmedImg from "./assets/images/icon-order-confirmed.svg";
 import CartItem from "./components/CartItem";
+import ConfirmedCartItem from "./components/ConfirmedCartItem";
 
 function App() {
   const [products, setProducts] = useState([
@@ -21,7 +26,13 @@ function App() {
       title: "Waffle with Berries",
       category: "Waffle",
       price: 6.5,
-      image: imageWaffleMobile,
+      images: {
+        mobile: imageWaffleMobile,
+        tablet: imageWaffleTablet,
+        desktop: imageWaffleDesktop,
+        thumbnail: imageWaffleThumbnail,
+
+      },
     },
     {
       id: 2,
@@ -92,6 +103,8 @@ function App() {
     9: 0,
   });
 
+  const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
+
   let totalItems = 0;
 
   for (let id in count) {
@@ -116,6 +129,12 @@ function App() {
   };
 
   cartCalculation();
+
+  const removeItem = (id) => {
+    setCount((prev) => {
+      return { ...prev, [id]: 0 };
+    });
+  };
   return (
     <>
       <div className="main_container">
@@ -185,7 +204,12 @@ function App() {
             <>
               {products.map((p) => {
                 return count[p.id] > 0 ? (
-                  <CartItem product={p} count={count[p.id]} key={p.id} />
+                  <CartItem
+                    product={p}
+                    count={count[p.id]}
+                    key={p.id}
+                    deleteItem={removeItem}
+                  />
                 ) : (
                   ""
                 );
@@ -196,16 +220,53 @@ function App() {
               </div>
               <div className="carbon_neutral">
                 <img src={carbonNeutral} alt="" />
-                <h4>This is a <span className="h4_bold">carbon-neutral</span> delivery</h4>
+                <h4>
+                  This is a <span className="h4_bold">carbon-neutral</span>{" "}
+                  delivery
+                </h4>
               </div>
-              <button><h3>Confirm Order</h3></button>
+              <button>
+                <h3 onClick={() => setIsOrderConfirmed(true)}>Confirm Order</h3>
+              </button>
             </>
           ) : (
             <div>
               <img src={emptyCartImg} alt="" />
               <h4 className="h4_bold">Your added items will appear here</h4>
             </div>
-            
+          )}
+        </section>
+        <section>
+          {isOrderConfirmed && (
+            <div className="overlay">
+              <div className="modal">
+                <img src={orderConfirmedImg} alt="" />
+                <h1>Order Confirmed</h1>
+                <h3>We hope you enjoy your food!</h3>
+                <div className="grid_confirmed_items">
+                  {products.map((p) => {
+                    return (
+                      count[p.id] > 0 && (
+                        <ConfirmedCartItem
+                          product={p}
+                          count={count[p.id]}
+                          key={p.id}
+                        />
+                      )
+                    );
+                  })}
+                  <div>
+                    <h4>Order Total</h4>
+                    <h2>£{cartTotal.toFixed(2)}</h2>
+                  </div>
+                  <button>
+                    <h3 onClick="">
+                      Start New Order
+                    </h3>
+                  </button>
+                </div>
+              </div>
+            </div>
           )}
         </section>
       </div>
@@ -214,3 +275,5 @@ function App() {
 }
 
 export default App;
+
+//
