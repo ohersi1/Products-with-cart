@@ -6,13 +6,37 @@ import imageWaffleTablet from "./assets/images/image-waffle-tablet.jpg";
 import imageWaffleDesktop from "./assets/images/image-waffle-desktop.jpg";
 import imageWaffleThumbnail from "./assets/images/image-waffle-thumbnail.jpg";
 import cremeBruleeMobile from "./assets/images/image-creme-brulee-mobile.jpg";
+import cremeBruleeTablet from "./assets/images/image-creme-brulee-tablet.jpg";
+import cremeBruleeDesktop from "./assets/images/image-creme-brulee-desktop.jpg";
+import cremeBruleeThumbnail from "./assets/images/image-creme-brulee-thumbnail.jpg";
 import macaronMobile from "./assets/images/image-macaron-mobile.jpg";
+import macaronTablet from "./assets/images/image-macaron-tablet.jpg";
+import macaronDesktop from "./assets/images/image-macaron-desktop.jpg";
+import macaronThumbnail from "./assets/images/image-macaron-thumbnail.jpg";
 import tiramisuMobile from "./assets/images/image-tiramisu-mobile.jpg";
+import tiramisuTablet from "./assets/images/image-tiramisu-tablet.jpg";
+import tiramisuDesktop from "./assets/images/image-tiramisu-desktop.jpg";
+import tiramisuThumbnail from "./assets/images/image-tiramisu-thumbnail.jpg";
 import baklavaMobile from "./assets/images/image-baklava-mobile.jpg";
+import baklavaTablet from "./assets/images/image-baklava-tablet.jpg";
+import baklavaDesktop from "./assets/images/image-baklava-desktop.jpg";
+import baklavaThumbnail from "./assets/images/image-baklava-thumbnail.jpg";
 import meringueMobile from "./assets/images/image-meringue-mobile.jpg";
+import meringueTablet from "./assets/images/image-meringue-tablet.jpg";
+import meringueDesktop from "./assets/images/image-meringue-desktop.jpg";
+import meringueThumbnail from "./assets/images/image-meringue-thumbnail.jpg";
 import cakeMobile from "./assets/images/image-cake-mobile.jpg";
+import cakeTablet from "./assets/images/image-cake-tablet.jpg";
+import cakeDesktop from "./assets/images/image-cake-desktop.jpg";
+import cakeThumbnail from "./assets/images/image-cake-thumbnail.jpg";
 import brownieMobile from "./assets/images/image-brownie-mobile.jpg";
+import brownieTablet from "./assets/images/image-brownie-tablet.jpg";
+import brownieDesktop from "./assets/images/image-brownie-desktop.jpg";
+import brownieThumbnail from "./assets/images/image-brownie-thumbnail.jpg";
 import cottaMobile from "./assets/images/image-panna-cotta-mobile.jpg";
+import cottaTablet from "./assets/images/image-panna-cotta-tablet.jpg";
+import cottaDesktop from "./assets/images/image-panna-cotta-desktop.jpg";
+import cottaThumbnail from "./assets/images/image-panna-cotta-thumbnail.jpg";
 import emptyCartImg from "./assets/images/illustration-empty-cart.svg";
 import carbonNeutral from "./assets/images/icon-carbon-neutral.svg";
 import orderConfirmedImg from "./assets/images/icon-order-confirmed.svg";
@@ -31,7 +55,6 @@ function App() {
         tablet: imageWaffleTablet,
         desktop: imageWaffleDesktop,
         thumbnail: imageWaffleThumbnail,
-
       },
     },
     {
@@ -39,56 +62,96 @@ function App() {
       title: "Vanilla Bean Crème Brûlée",
       category: "Crème Brûlée",
       price: 7.0,
-      image: cremeBruleeMobile,
+      images: {
+        mobile: cremeBruleeMobile,
+        tablet: cremeBruleeTablet,
+        desktop: cremeBruleeDesktop,
+        thumbnail: cremeBruleeThumbnail,
+      },
     },
     {
       id: 3,
       title: "Macaron Mix of Five",
       category: "Macaron",
       price: 8.0,
-      image: macaronMobile,
+      images: {
+        mobile: macaronMobile,
+        tablet: macaronTablet,
+        desktop: macaronDesktop,
+        thumbnail: macaronThumbnail,
+      },
     },
     {
       id: 4,
       title: "Classic Tiramisu",
       category: "Tiramisu",
       price: 5.5,
-      image: tiramisuMobile,
+      images: {
+        mobile: tiramisuMobile,
+        tablet: tiramisuTablet,
+        desktop: tiramisuDesktop,
+        thumbnail: tiramisuThumbnail,
+      },
     },
     {
       id: 5,
       title: "Pistachio Baklava",
       category: "Baklava",
       price: 4.0,
-      image: baklavaMobile,
+      images: {
+        mobile: baklavaMobile,
+        tablet: baklavaTablet,
+        desktop: baklavaDesktop,
+        thumbnail: baklavaThumbnail,
+      },
     },
     {
       id: 6,
       title: "Lemon Meringue Pie",
       category: "Pie",
       price: 5.0,
-      image: meringueMobile,
+      images: {
+        mobile: meringueMobile,
+        tablet: meringueTablet,
+        desktop: meringueDesktop,
+        thumbnail: meringueThumbnail,
+      },
     },
     {
       id: 7,
       title: "Red Velvet Cake",
       category: "Cake",
       price: 4.5,
-      image: cakeMobile,
+      images: {
+        mobile: cakeMobile,
+        tablet: cakeTablet,
+        desktop: cakeDesktop,
+        thumbnail: cakeThumbnail,
+      },
     },
     {
       id: 8,
       title: "Salted Caramel Brownie",
       category: "Brownie",
       price: 5.5,
-      image: brownieMobile,
+      images: {
+        mobile: brownieMobile,
+        tablet: brownieTablet,
+        desktop: brownieDesktop,
+        thumbnail: brownieThumbnail,
+      },
     },
     {
       id: 9,
       title: "Vanilla Panna Cotta",
       category: "Panna Cotta",
       price: 6.5,
-      image: cottaMobile,
+      images: {
+        mobile: cottaMobile,
+        tablet: cottaTablet,
+        desktop: cottaDesktop,
+        thumbnail: cottaThumbnail,
+      },
     },
   ]);
   const [count, setCount] = useState({
@@ -243,7 +306,7 @@ function App() {
                 <img src={orderConfirmedImg} alt="" />
                 <h1>Order Confirmed</h1>
                 <h3>We hope you enjoy your food!</h3>
-                <div className="grid_confirmed_items">
+                <div>
                   {products.map((p) => {
                     return (
                       count[p.id] > 0 && (
@@ -260,9 +323,7 @@ function App() {
                     <h2>£{cartTotal.toFixed(2)}</h2>
                   </div>
                   <button>
-                    <h3 onClick="">
-                      Start New Order
-                    </h3>
+                    <h3 onClick="">Start New Order</h3>
                   </button>
                 </div>
               </div>

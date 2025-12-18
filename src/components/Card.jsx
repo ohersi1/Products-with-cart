@@ -5,12 +5,18 @@ import incrementImg from "../assets/images/icon-increment-quantity.svg";
 import "./Card.css";
 
 const Card = ({ product, decrement, increment, count }) => {
-  let { title, category, price, image, id } = product;
+  let { title, category, price, images, id } = product;
 
   return (
     <div className="card">
       <div className="img_wrapper">
-        <img className="dessert_img" src={image} alt="" />
+        <picture>
+          <source srcSet={images.desktop} media="(min-width: 1024px)" />
+
+          <source srcSet={images.tablet} media="(min-width: 768px)" />
+
+          <img src={images.mobile} alt={title} className="dessert_img" />
+        </picture>
         {count === 0 ? (
           <button onClick={() => increment(id)}>
             <img src={cartIcon} alt="" />
