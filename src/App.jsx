@@ -201,7 +201,7 @@ function App() {
   return (
     <>
       <div className="main_container">
-        <h1>Desserts</h1>
+        <h1 className="text-preset-1">Desserts</h1>
         <section className="cards_container">
           <Card
             product={products[0]}
@@ -259,7 +259,7 @@ function App() {
           />
         </section>
         <section className="cart">
-          <h2 className="price">
+          <h2 className="cart-title text-preset-2">
             Your Cart ({totalItems > 0 ? totalItems : 0})
           </h2>
 
@@ -293,9 +293,9 @@ function App() {
               </button>
             </>
           ) : (
-            <div>
-              <img src={emptyCartImg} alt="" />
-              <h4 className="h4_bold">Your added items will appear here</h4>
+            <div className="empty-cart-default-img-and-text">
+              <img className="empty-cart-default-img" src={emptyCartImg} alt="" />
+              <h4 className="text-preset-4-bold empty-cart-default-text">Your added items will appear here</h4>
             </div>
           )}
         </section>

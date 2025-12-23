@@ -1,41 +1,50 @@
-h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 125%;
-  letter-spacing: 0px;
-}
-
-h3 {
+.text-preset-3 {
   font-size: 1rem;
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 0px;
-  color: var(--rose-900);
 }
 
-h4 {
+.text-preset-4 {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0px;
-  color: var(--rose-500);
-  margin-bottom: 0.25rem;
+  
 }
 
-.h4_bold {
+.text-preset-4-bold {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 0px;
 }
 
-.price {
+.card {
+  margin-bottom: 1.5rem;
+}
+
+.card:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.card-dessert-category  {
+  color: var(--rose-500);
+  margin-bottom: 0.25rem;
+}
+
+.card-dessert-name {
+  color: var(--rose-900);
+  margin-bottom: 0.25rem;
+}
+
+.card-price {
   color: var(--red);
 }
 
 .img_wrapper {
   position: relative;
-  margin-bottom: calc(1rem + 21.5px);
+  margin-bottom: calc(1rem + 23.5px);
 }
 
 .dessert_img{
@@ -67,9 +76,6 @@ h4 {
   padding: 1.5rem;
 }
 
-.card h3:first-of-type  {
-  margin-bottom: 0.25rem;
-}
 
 .card h3:nth-of-type(2) {
   margin-bottom: 1.5rem;

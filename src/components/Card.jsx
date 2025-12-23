@@ -20,19 +20,19 @@ const Card = ({ product, decrement, increment, count }) => {
         {count === 0 ? (
           <button onClick={() => increment(id)}>
             <img src={cartIcon} alt="" />
-            <span className="h4_bold">Add to Cart</span>
+            <span className="text-preset-4-bold">Add to Cart</span>
           </button>
         ) : (
           <button className="btn-2">
             <img onClick={() => decrement(id)} src={decrementImg} alt="" />
-            <span className="h4_bold">{count}</span>
+            <span className="text-preset-4-bold">{count}</span>
             <img onClick={() => increment(id)} src={incrementImg} alt="" />
           </button>
         )}
       </div>
-      <h4>{category}</h4>
-      <h3>{title}</h3>
-      <h3 className="price">£{price.toFixed(2)}</h3>
+      <h3 className="text-preset-4 card-dessert-category">{category}</h3>
+      <p className="text-preset-3 card-dessert-name">{title}</p>
+      <p className="text-preset-3 card-price">£{price.toFixed(2)}</p>
     </div>
   );
 };
