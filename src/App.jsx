@@ -265,6 +265,7 @@ function App() {
 
           {totalItems > 0 ? (
             <>
+            <div className="cart-items-wrapper">
               {products.map((p) => {
                 return count[p.id] > 0 ? (
                   <CartItem
@@ -277,25 +278,38 @@ function App() {
                   ""
                 );
               })}
+              </div>
               <div className="cart_total">
-                <h4>Order total</h4>
-                <h2>£{cartTotal.toFixed(2)}</h2>
+                <p className="text-preset-4 cart-total-text">Order total</p>
+                <h2 className="text-preset-2 cart-total-order-price">
+                  £{cartTotal.toFixed(2)}
+                </h2>
               </div>
               <div className="carbon_neutral">
                 <img src={carbonNeutral} alt="" />
-                <h4>
-                  This is a <span className="h4_bold">carbon-neutral</span>{" "}
+                <p className="text-preset-4">
+                  This is a{" "}
+                  <span className="text-preset-4-bold">carbon-neutral</span>{" "}
                   delivery
-                </h4>
+                </p>
               </div>
-              <button>
-                <h3 onClick={() => setIsOrderConfirmed(true)}>Confirm Order</h3>
+              <button
+                className="cart-confirm-order-btn text-preset-3"
+                onClick={() => setIsOrderConfirmed(true)}
+              >
+                Confirm Order
               </button>
             </>
           ) : (
             <div className="empty-cart-default-img-and-text">
-              <img className="empty-cart-default-img" src={emptyCartImg} alt="" />
-              <h4 className="text-preset-4-bold empty-cart-default-text">Your added items will appear here</h4>
+              <img
+                className="empty-cart-default-img"
+                src={emptyCartImg}
+                alt=""
+              />
+              <h4 className="text-preset-4-bold empty-cart-default-text">
+                Your added items will appear here
+              </h4>
             </div>
           )}
         </section>

@@ -17,12 +17,13 @@
     margin-bottom: 1.5rem;
 }
 
-.cart_total h4 {
+.cart-total-text {
     color: var(--rose-900);
 }
 
-.cart_total h2 {
+.cart-total-order-price {
     margin-bottom: 0;
+    color: var(--rose-900);
 }
 
 .carbon_neutral {
@@ -35,12 +36,14 @@
     margin-bottom: 1.5rem;
 }
 
-.carbon_neutral h4 {
+.carbon_neutral p {
     margin-bottom: 0;
     white-space: nowrap;
     color: var(--rose-900);
 }
-
+.carbon_neutral span {
+    color: var(--rose-900);
+}
 .carbon_neutral img {
     margin: 0;
 }
@@ -71,7 +74,7 @@ button img {
     color: var(--red);
 }
 
-.cart button {
+.cart-confirm-order-btn {
     border-radius: 999px;
     background-color: var(--red);
     padding: 1rem 1.5rem;

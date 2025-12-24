@@ -15,7 +15,7 @@ const Card = ({ product, decrement, increment, count }) => {
 
           <source srcSet={images.tablet} media="(min-width: 768px)" />
 
-          <img src={images.mobile} alt={title} className="dessert_img" />
+          <img src={images.mobile} alt={title} className={count > 0 ? "dessert_img active" : "dessert_img"} />
         </picture>
         {count === 0 ? (
           <button onClick={() => increment(id)}>
