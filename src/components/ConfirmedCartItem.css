@@ -12,6 +12,7 @@
     grid-row: 2;
     grid-column: 2;
 }
+
 .grid_confirmed_items h4:nth-of-type(3) {
     color: var(--rose-500);
     grid-column: 2;
@@ -22,10 +23,38 @@
     color: var(--rose-900);
 }
 
-.grid_confirmed_items {
-    padding: 1.5rem;
-    background-color: var(--rose-50);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+.confirmed-items {
+    display: flex;
+}
+
+.title-quantity-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity-price {
+    display: flex;
+}
+
+.thumbnail-img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+}
+
+.modal-dessert-title {
+    color: var(--rose-900);
+    white-space: nowrap;
+}
+
+.modal-quantity-of-dessert {
+    color: var(--red);
+}
+
+.modal-price-of-dessert {
+    color: var(--rose-500);
+}
+
+.modal-dessert-total-price {
+    color: var(--rose-900);
 }

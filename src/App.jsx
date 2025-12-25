@@ -201,7 +201,7 @@ function App() {
   return (
     <>
       <div className="main_container">
-        <h1 className="text-preset-1">Desserts</h1>
+        <h1 className="text-preset-1 main-page-title">Desserts</h1>
         <section className="cards_container">
           <Card
             product={products[0]}
@@ -265,19 +265,19 @@ function App() {
 
           {totalItems > 0 ? (
             <>
-            <div className="cart-items-wrapper">
-              {products.map((p) => {
-                return count[p.id] > 0 ? (
-                  <CartItem
-                    product={p}
-                    count={count[p.id]}
-                    key={p.id}
-                    deleteItem={removeItem}
-                  />
-                ) : (
-                  ""
-                );
-              })}
+              <div className="cart-items-wrapper">
+                {products.map((p) => {
+                  return (
+                    count[p.id] > 0 && (
+                      <CartItem
+                        product={p}
+                        count={count[p.id]}
+                        key={p.id}
+                        deleteItem={removeItem}
+                      />
+                    )
+                  );
+                })}
               </div>
               <div className="cart_total">
                 <p className="text-preset-4 cart-total-text">Order total</p>
@@ -318,9 +318,11 @@ function App() {
             <div className="overlay">
               <div className="modal">
                 <img src={orderConfirmedImg} alt="" />
-                <h1>Order Confirmed</h1>
-                <h3>We hope you enjoy your food!</h3>
-                <div>
+                <h1 className="text-preset-1 modal-title">Order Confirmed</h1>
+                <h3 className="text-preset-3 modal-text">
+                  We hope you enjoy your food!
+                </h3>
+                <div className="confirmed-items-container">
                   {products.map((p) => {
                     return (
                       count[p.id] > 0 && (
@@ -332,14 +334,15 @@ function App() {
                       )
                     );
                   })}
-                  <div>
-                    <h4>Order Total</h4>
-                    <h2>£{cartTotal.toFixed(2)}</h2>
+
+                  <div className="modal-order-total-div">
+                    <h4 className="text-preset-4 modal-total-text">Order Total</h4>
+                    <h2 className="text-preset-2 modal-total-order-price">£{cartTotal.toFixed(2)}</h2>
                   </div>
-                  <button>
-                    <h3 onClick="">Start New Order</h3>
-                  </button>
                 </div>
+                <button className="text-preset-3 modal-start-new-order-btn">
+                  Start New Order
+                </button>
               </div>
             </div>
           )}
