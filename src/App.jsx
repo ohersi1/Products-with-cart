@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 import Card from "./components/Card";
 import imageWaffleMobile from "./assets/images/image-waffle-mobile.jpg";
 import imageWaffleTablet from "./assets/images/image-waffle-tablet.jpg";
@@ -44,7 +44,19 @@ import CartItem from "./components/CartItem";
 import ConfirmedCartItem from "./components/ConfirmedCartItem";
 
 function App() {
-  const [products, setProducts] = useState([
+  const emptyCart = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+  };
+
+  let [products, setProducts] = useState([
     {
       id: 1,
       title: "Waffle with Berries",
@@ -154,19 +166,9 @@ function App() {
       },
     },
   ]);
-  const [count, setCount] = useState({
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0,
-  });
+  const [count, setCount] = useState(emptyCart);
 
-  const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
+  let [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
 
   let totalItems = 0;
 
@@ -197,6 +199,18 @@ function App() {
     setCount((prev) => {
       return { ...prev, [id]: 0 };
     });
+  };
+
+  useEffect(() => {
+    isOrderConfirmed
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "visible");
+    return () => (document.body.style.overflow = "visible");
+  }, [isOrderConfirmed]);
+
+  const handleNewOrder = () => {
+    setIsOrderConfirmed(false);
+    setCount({ ...emptyCart });
   };
   return (
     <>
@@ -317,30 +331,43 @@ function App() {
           {isOrderConfirmed && (
             <div className="overlay">
               <div className="modal">
-                <img src={orderConfirmedImg} alt="" />
+                <img
+                  className="green-tick-img"
+                  src={orderConfirmedImg}
+                  alt=""
+                />
                 <h1 className="text-preset-1 modal-title">Order Confirmed</h1>
                 <h3 className="text-preset-3 modal-text">
                   We hope you enjoy your food!
                 </h3>
                 <div className="confirmed-items-container">
-                  {products.map((p) => {
-                    return (
-                      count[p.id] > 0 && (
-                        <ConfirmedCartItem
-                          product={p}
-                          count={count[p.id]}
-                          key={p.id}
-                        />
-                      )
-                    );
-                  })}
-
+                  <div className="wrapper-for-confirmed-items-only">
+                    {products.map((p) => {
+                      return (
+                        count[p.id] > 0 && (
+                          <ConfirmedCartItem
+                            product={p}
+                            count={count[p.id]}
+                            key={p.id}
+                          />
+                        )
+                      );
+                    })}
+                  </div>
                   <div className="modal-order-total-div">
-                    <h4 className="text-preset-4 modal-total-text">Order Total</h4>
-                    <h2 className="text-preset-2 modal-total-order-price">£{cartTotal.toFixed(2)}</h2>
+                    <h4 className="text-preset-4 modal-total-text">
+                      Order Total
+                    </h4>
+                    <h2 className="text-preset-2 modal-total-order-price">
+                      £{cartTotal.toFixed(2)}
+                    </h2>
                   </div>
                 </div>
-                <button className="text-preset-3 modal-start-new-order-btn">
+
+                <button
+                  onClick={handleNewOrder}
+                  className="text-preset-3 modal-start-new-order-btn"
+                >
                   Start New Order
                 </button>
               </div>

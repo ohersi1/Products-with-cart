@@ -25,15 +25,22 @@
 
 .confirmed-items {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--rose-100);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .title-quantity-price {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
 }
 
 .quantity-price {
     display: flex;
+    gap: 0.5rem;
 }
 
 .thumbnail-img {
@@ -44,7 +51,7 @@
 
 .modal-dessert-title {
     color: var(--rose-900);
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 .modal-quantity-of-dessert {
@@ -57,4 +64,5 @@
 
 .modal-dessert-total-price {
     color: var(--rose-900);
+    margin-left: auto;
 }
