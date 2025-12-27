@@ -10,7 +10,7 @@
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0px;
-  
+
 }
 
 .text-preset-4-bold {
@@ -28,7 +28,7 @@
   margin-bottom: 2rem;
 }
 
-.card-dessert-category  {
+.card-dessert-category {
   color: var(--rose-500);
   margin-bottom: 0.25rem;
 }
@@ -47,7 +47,7 @@
   margin-bottom: calc(1rem + 23.5px);
 }
 
-.dessert_img{
+.dessert_img {
   width: 100%;
   border-radius: 0.5rem;
 }
@@ -90,18 +90,41 @@
 }
 
 .img_wrapper button.btn-2 span {
-    color: var(--white);
-    width: 3ch;
-    text-align: center;
+  color: var(--white);
+  width: 3ch;
+  text-align: center;
 }
 
-.img_wrapper button.btn-2 img {
-    border-radius: 50%;
-    border: 2px solid var(--white);
-    padding: 3px;
-    cursor: pointer;
+.img_wrapper button.btn-2 svg {
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  padding: 3px;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.img_wrapper button.btn-2 svg:hover {
+  background-color: var(--white);
+  color: var(--red)
 }
 
 .active {
   border: 2px solid var(--red);
+}
+
+.add-to-cart-btn svg {
+  color: var(--red);
+}
+
+.add-to-cart-btn:hover {
+  border: 1px solid var(--red);
+}
+
+.add-to-cart-btn:hover span {
+  color: var(--red);
+}
+
+.decrement-btn:hover {
+  background-color: var(--white);
+  color: black;
 }

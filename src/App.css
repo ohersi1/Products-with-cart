@@ -70,9 +70,7 @@
     padding: 1rem 0;
 }
 
-button img {
-    color: var(--red);
-}
+
 
 .cart-confirm-order-btn {
     border-radius: 999px;
