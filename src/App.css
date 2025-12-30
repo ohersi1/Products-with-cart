@@ -102,6 +102,12 @@ button h3 {
     padding: 2.5rem 1.5rem 1.5rem;
     z-index: 1000;
     overflow-y: auto;
+    transform: translateY(100%);  
+    transition: transform 400ms ease-out;  
+}
+
+.modal.modal-open {
+    transform: translateY(0);
 }
 
 .modal-title {
@@ -153,3 +159,5 @@ button h3 {
 .green-tick-img {
     margin-bottom: 1.5rem;
 }
+
+

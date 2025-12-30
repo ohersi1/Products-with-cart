@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useEffectEvent, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import imageWaffleMobile from "./assets/images/image-waffle-mobile.jpg";
 import imageWaffleTablet from "./assets/images/image-waffle-tablet.jpg";
@@ -330,7 +330,7 @@ function App() {
         <section>
           {isOrderConfirmed && (
             <div className="overlay">
-              <div className="modal">
+              <div className="modal modal-open">
                 <img
                   className="green-tick-img"
                   src={orderConfirmedImg}
