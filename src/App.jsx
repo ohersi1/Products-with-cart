@@ -329,8 +329,9 @@ function App() {
         </section>
         <section>
           {isOrderConfirmed && (
-            <div className="overlay">
-              <div className="modal modal-open">
+            <div className="overlay"></div>
+          )}
+              <div className={`modal ${isOrderConfirmed ? "modal-open" : ""}`}>
                 <img
                   className="green-tick-img"
                   src={orderConfirmedImg}
@@ -371,8 +372,7 @@ function App() {
                   Start New Order
                 </button>
               </div>
-            </div>
-          )}
+            
         </section>
       </div>
     </>
