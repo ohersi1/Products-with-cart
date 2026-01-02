@@ -19,3 +19,6 @@ I had an issue with my font not working. I realised that you have to load your f
 
 Issue 2:
 My + button was moving once my count was 10 or above because I used justify-content: space-between so once my count was double digits the + button would move physically on the screen which was terrible. I solved it by setting width on my count span to 3ch. this means the width of my span is 3 characters so it would solve my problem. I also text-align: center the span so my count was centered to help with aesthetics and living up to the design.
+
+Issue 3:
+When I was animating the modal to come up slowly once user clicks confirm order it wasn't working. I then had to read up on mounting and how the modal had to exist first instead of how I did it which was the modal only started existing after isOrderConfirmed was true. So I did conditional rendering on the classname of modal so I could transition correctly to make the animation work.
