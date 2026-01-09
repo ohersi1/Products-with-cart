@@ -328,51 +328,46 @@ function App() {
           )}
         </section>
         <section>
-          {isOrderConfirmed && (
-            <div className="overlay"></div>
-          )}
-              <div className={`modal ${isOrderConfirmed ? "modal-open" : ""}`}>
-                <img
-                  className="green-tick-img"
-                  src={orderConfirmedImg}
-                  alt=""
-                />
-                <h1 className="text-preset-1 modal-title">Order Confirmed</h1>
-                <h3 className="text-preset-3 modal-text">
-                  We hope you enjoy your food!
-                </h3>
-                <div className="confirmed-items-container">
-                  <div className="wrapper-for-confirmed-items-only">
-                    {products.map((p) => {
-                      return (
-                        count[p.id] > 0 && (
-                          <ConfirmedCartItem
-                            product={p}
-                            count={count[p.id]}
-                            key={p.id}
-                          />
-                        )
-                      );
-                    })}
-                  </div>
-                  <div className="modal-order-total-div">
-                    <h4 className="text-preset-4 modal-total-text">
-                      Order Total
-                    </h4>
-                    <h2 className="text-preset-2 modal-total-order-price">
-                      £{cartTotal.toFixed(2)}
-                    </h2>
-                  </div>
+          {isOrderConfirmed && <div className="overlay"></div>}
+          <div className={`modal`}>
+            <div className={`modal-panel ${isOrderConfirmed ? "modal-open" : ""}`}>
+              <img className="green-tick-img" src={orderConfirmedImg} alt="" />
+              <h1 className="text-preset-1 modal-title">Order Confirmed</h1>
+              <h3 className="text-preset-3 modal-text">
+                We hope you enjoy your food!
+              </h3>
+              <div className="confirmed-items-container">
+                <div className="wrapper-for-confirmed-items-only">
+                  {products.map((p) => {
+                    return (
+                      count[p.id] > 0 && (
+                        <ConfirmedCartItem
+                          product={p}
+                          count={count[p.id]}
+                          key={p.id}
+                        />
+                      )
+                    );
+                  })}
                 </div>
-
-                <button
-                  onClick={handleNewOrder}
-                  className="text-preset-3 modal-start-new-order-btn"
-                >
-                  Start New Order
-                </button>
+                <div className="modal-order-total-div">
+                  <h4 className="text-preset-4 modal-total-text">
+                    Order Total
+                  </h4>
+                  <h2 className="text-preset-2 modal-total-order-price">
+                    £{cartTotal.toFixed(2)}
+                  </h2>
+                </div>
               </div>
-            
+
+              <button
+                onClick={handleNewOrder}
+                className="text-preset-3 modal-start-new-order-btn"
+              >
+                Start New Order
+              </button>
+            </div>
+          </div>
         </section>
       </div>
     </>
