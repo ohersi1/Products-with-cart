@@ -108,12 +108,13 @@ button h3 {
     left: 0;
     right: 0;
     background-color: var(--white);
-    height: 91vh;
+    max-height: 91vh;
     padding: 2.5rem 1.5rem 1.5rem;
     overflow-y: auto;
     transform: translateY(100%);
     transition: transform 800ms ease-out;
     pointer-events: auto;
+    border-radius: 12px 12px 0 0;
 }
 
 .modal-panel.modal-open {

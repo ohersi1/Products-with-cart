@@ -148,15 +148,24 @@
   }
 
   .modal-panel.modal-open {
-    inset: auto;
-    left: 1.5rem;
-    right: 1.5rem;
-    max-height: 60vh;
+    opacity: 1;
+    pointer-events: auto;
+    
   }
+
   .modal-panel {
     padding: 2.5rem;
-  }
-  
+    border-radius: 12px;
+    position: relative;
+    width: 100%;
+    inset: auto;
+    max-width: 94%;
+    max-height: 70vh;
+    opacity: 0;
+    transition: opacity 800ms linear;
+    pointer-events: none;
+}
+
 }
 
 @media only screen and (min-width: 992px) {
@@ -176,5 +185,14 @@
     align-self: start;
   }
 
+  .modal-panel.modal-open {
+    inset: auto;
+    width: 60vw;
+    max-height: 70vh;
+    height: auto;
+  }
+
 
 }
+
+@media only screen and (min-width: 1200px) {}
