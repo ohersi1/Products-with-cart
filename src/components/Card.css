@@ -140,6 +140,10 @@
   .card {
     margin-bottom: 2rem;
   }
+  .overlay.overlay-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
   .modal {
     display: flex;
@@ -150,6 +154,7 @@
   .modal-panel.modal-open {
     opacity: 1;
     pointer-events: auto;
+    transition: transform 800ms ease-out;
     
   }
 
@@ -158,11 +163,14 @@
     border-radius: 12px;
     position: relative;
     width: 100%;
-    inset: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
     max-width: 94%;
     max-height: 70vh;
     opacity: 0;
-    transition: opacity 800ms linear;
+    transform: translateY(100vh);
+    transition: opacity 100ms ease-out;
     pointer-events: none;
 }
 

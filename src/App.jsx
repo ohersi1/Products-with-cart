@@ -328,7 +328,7 @@ function App() {
           )}
         </section>
         <section>
-          {isOrderConfirmed && <div className="overlay"></div>}
+          <div className={isOrderConfirmed ? "overlay overlay-open" : "overlay"}></div>
           <div className={`modal`}>
             <div className={`modal-panel ${isOrderConfirmed ? "modal-open" : ""}`}>
               <img className="green-tick-img" src={orderConfirmedImg} alt="" />
