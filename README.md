@@ -1,24 +1,194 @@
-# Products with cart
+# 🍰 Responsive Dessert Menu & Cart App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive dessert menu application built with **React** and modern **CSS (Grid & Flexbox)** that allows users to add items to a cart, manage quantities, and complete an order via an animated confirmation modal.
 
-Currently, two official plugins are available:
+This project focuses heavily on **state management, conditional UI rendering, responsive layout architecture, animation control, and debugging real-world frontend issues** rather than just visual styling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Live Demo
 
+[View the live app here](#)
 
+---
 
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📱 Responsive Menu Layout
+- Mobile-first design
+- Grid-based layout on tablet/desktop (3 cards per row)
+- Adaptive layout behaviour across breakpoints
 
-Issue 1:
-I had an issue with my font not working. I realised that you have to load your font first when you have the font files saved locally using @font-face. That took me a while to figure out but once I did that and then set the font-family to my new font in the body I resolved that issue.
+### 🛒 Interactive Cart System
+- Add to Cart → Increment / Decrement controls
+- Real-time cart item count updates
+- Dynamic order total calculation
+- Cart reset functionality on new order
 
-Issue 2:
-My + button was moving once my count was 10 or above because I used justify-content: space-between so once my count was double digits the + button would move physically on the screen which was terrible. I solved it by setting width on my count span to 3ch. this means the width of my span is 3 characters so it would solve my problem. I also text-align: center the span so my count was centered to help with aesthetics and living up to the design.
+### 🧾 Order Confirmation Modal
+- Mobile: Bottom-sheet slide-up animation
+- Tablet/Desktop: Centered modal dialog
+- Slide-in animation on open
+- Fade-out animation on close
+- Background scroll locking while modal is active
 
-Issue 3:
-When I was animating the modal to come up slowly once user clicks confirm order it wasn't working. I then had to read up on mounting and how the modal had to exist first instead of how I did it which was the modal only started existing after isOrderConfirmed was true. So I did conditional rendering on the classname of modal so I could transition correctly to make the animation work.
+---
+
+## 🛠️ Tech Stack
+
+- **React** (State management & component architecture)
+- **CSS Grid & Flexbox**
+- **Responsive Design (Media Queries)**
+- **SVG Integration**
+- **Git (version control & workflow discipline)**
+
+---
+
+## 🧠 Technical Challenges & Solutions
+
+This project involved solving several real-world frontend engineering problems.
+
+---
+
+### 1️⃣ Managing Shared Cart State Across Components
+
+**Challenge:**  
+Each product card needed to update the cart while keeping the cart summary and totals in sync.
+
+**Solution:**  
+- Centralised cart state in the parent component as an object keyed by product ID.
+- Passed `increment` and `decrement` handlers down via props.
+- Derived total item count and order total from state instead of storing redundant values.
+
+---
+
+### 2️⃣ Conditional UI: Add to Cart → Quantity Controls
+
+**Challenge:**  
+Switching between a single “Add to Cart” button and increment/decrement controls without breaking layout consistency.
+
+**Solution:**  
+- Used conditional rendering based on item count.
+- Ensured both states shared consistent dimensions to avoid visual shifts.
+
+---
+
+### 3️⃣ Layout Shift Caused by Dynamic Content Width
+
+**Challenge:**  
+When the cart quantity reached double digits (10+), the `+` button shifted position due to `justify-content: space-between`. The growing number caused the layout to recalculate spacing.
+
+**Solution:**  
+- Assigned a fixed width to the quantity span using `3ch` (character units).
+- Centered the text using `text-align: center`.
+- Ensured stable button positioning regardless of content width.
+
+This eliminated UI jitter and improved layout stability.
+
+---
+
+### 4️⃣ CSS Grid Row Stretching
+
+**Challenge:**  
+The cart section stretched grid rows unexpectedly when spanning multiple rows.
+
+**Solution:**  
+- Used intentional `grid-row` placement.
+- Disabled default stretching with `align-self: start`.
+- Allowed content height to define layout naturally.
+
+---
+
+### 5️⃣ Custom Font Not Rendering
+
+**Challenge:**  
+A locally stored custom font was not applying correctly.
+
+**Solution:**  
+- Properly loaded the font using `@font-face`.
+- Verified font sources and weights.
+- Applied the custom `font-family` globally.
+- Confirmed successful loading via browser DevTools.
+
+This reinforced understanding of how the browser handles locally hosted assets.
+
+---
+
+### 6️⃣ Transform Conflicts in Modal Animation
+
+**Challenge:**  
+Centering the modal using `transform` conflicted with slide animations, since only one transform can apply per element.
+
+**Solution:**  
+- Split the modal into two structural layers:
+  - `.modal` (positioning shell)
+  - `.modal-panel` (animated panel)
+- Separated layout logic from animation logic to prevent transform overrides.
+
+---
+
+### 7️⃣ Modal Animation Not Triggering Due to Mounting
+
+**Challenge:**  
+The modal animation failed because the component was conditionally rendered and did not exist in the DOM before state changed.
+
+**Solution:**  
+- Refactored to keep the modal mounted.
+- Replaced conditional rendering with conditional class application.
+- Allowed CSS transitions to interpolate between states properly.
+
+This improved understanding of how React mounting interacts with CSS animations.
+
+---
+
+### 8️⃣ Breakpoint-Specific Animation Behaviour
+
+**Challenge:**  
+- Mobile required a bottom-sheet slide-up animation.
+- Tablet required a centered dialog that slides in but fades out on close.
+
+**Solution:**  
+- Implemented breakpoint-specific layout overrides.
+- Applied different transition properties depending on state.
+- Controlled animation direction by switching transition rules between base and modifier classes.
+
+---
+
+### 9️⃣ Preventing Background Scroll When Modal Opens
+
+**Challenge:**  
+The page remained scrollable behind the modal.
+
+**Solution:**  
+- Used `useEffect` to toggle `document.body.style.overflow`.
+- Implemented proper cleanup to avoid persistent scroll locking.
+
+---
+
+### 🔟 Version Control Discipline During Refactors
+
+**Challenge:**  
+UI refactors introduced breaking changes during development.
+
+**Solution:**  
+- Used Git to reset to stable commits when necessary.
+- Rebuilt features cleanly rather than stacking temporary fixes.
+- Maintained consistent commit history throughout development.
+
+---
+
+## 🔜 Future Improvements
+
+- Improve accessibility (keyboard navigation & focus management)
+- Add unit tests for cart logic
+- Extract reusable modal component
+- Optimise image loading strategy
+
+---
+
+## 👤 Author
+
+**Osman Hersi**
+
+- 🌐 Portfolio: https://www.osmanhersi.co.uk
+- 💻 GitHub: https://www.github.com/ohersi1

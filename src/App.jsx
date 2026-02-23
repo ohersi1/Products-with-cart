@@ -328,9 +328,13 @@ function App() {
           )}
         </section>
         <section>
-          <div className={isOrderConfirmed ? "overlay overlay-open" : "overlay"}></div>
+          <div
+            className={isOrderConfirmed ? "overlay overlay-open" : "overlay"}
+          ></div>
           <div className={`modal`}>
-            <div className={`modal-panel ${isOrderConfirmed ? "modal-open" : ""}`}>
+            <div
+              className={`modal-panel ${isOrderConfirmed ? "modal-open" : ""}`}
+            >
               <img className="green-tick-img" src={orderConfirmedImg} alt="" />
               <h1 className="text-preset-1 modal-title">Order Confirmed</h1>
               <h3 className="text-preset-3 modal-text">
@@ -375,5 +379,3 @@ function App() {
 }
 
 export default App;
-
-//

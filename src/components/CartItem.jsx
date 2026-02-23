@@ -4,12 +4,15 @@ import "./CartItem.css";
 
 const CartItem = ({ product, count, deleteItem }) => {
   return (
-    
     <div className="cart_item_div">
       <div>
-        <h4 className="text-preset-4-bold cart-dessert-title">{product.title}</h4>
+        <h4 className="text-preset-4-bold cart-dessert-title">
+          {product.title}
+        </h4>
         <div className="cart-total-price-item-div">
-          <span className="text-preset-4-bold cart-quantity-of-dessert">{count}x</span>
+          <span className="text-preset-4-bold cart-quantity-of-dessert">
+            {count}x
+          </span>
           <span className="text-preset-4 cart-price-of-dessert">
             @ £{product.price.toFixed(2)}
           </span>
@@ -20,7 +23,6 @@ const CartItem = ({ product, count, deleteItem }) => {
       </div>
       <img onClick={() => deleteItem(product.id)} src={removeImg} alt="" />
     </div>
-    
   );
 };
 
