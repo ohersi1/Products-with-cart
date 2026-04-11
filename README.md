@@ -8,7 +8,7 @@ This project focuses heavily on **state management, conditional UI rendering, re
 
 ## 🚀 Live Demo
 
-[View the live app here](#)
+[View the live app here](http://desserts-menu.osmanhersi.co.uk/)
 
 ---
 
